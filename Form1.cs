@@ -64,7 +64,7 @@ namespace process_simulation
                 }
             }
             this.run();
-        }
+        } 
         public void getStandbyList()
         {
             this.finishedListBox.Items.Add("Batch " + (this.currentBatch + 1));
