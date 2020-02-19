@@ -53,7 +53,7 @@ namespace process_simulation
             }
             this.batchCountLabel.Text ="# Batch: " + this.batchN.ToString();
             for (int i=0; i<this.n_process; i++)
-            {
+            { 
                 if (i == 0)
                 { 
                     this.processList.Add(new ProcessClass(0, this.rnd.Next(0, 100), this.rnd.Next(0, 100), 0, this.rnd.Next(4, 7), this.names[this.rnd.Next(this.names.Count)], this.ops[this.rnd.Next(this.ops.Count)]));
