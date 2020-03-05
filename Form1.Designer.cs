@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Lote 1");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Lote 1");
             this.generateBtn = new System.Windows.Forms.Button();
             this.nProcessTextBox = new System.Windows.Forms.TextBox();
             this.qtyProcessLabel = new System.Windows.Forms.Label();
@@ -55,12 +55,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.interruptButton = new System.Windows.Forms.Button();
+            this.errorButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // generateBtn
             // 
             this.generateBtn.Location = new System.Drawing.Point(183, 30);
-            this.generateBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.generateBtn.Margin = new System.Windows.Forms.Padding(4);
             this.generateBtn.Name = "generateBtn";
             this.generateBtn.Size = new System.Drawing.Size(100, 28);
             this.generateBtn.TabIndex = 0;
@@ -71,7 +73,7 @@
             // nProcessTextBox
             // 
             this.nProcessTextBox.Location = new System.Drawing.Point(104, 32);
-            this.nProcessTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nProcessTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nProcessTextBox.Name = "nProcessTextBox";
             this.nProcessTextBox.Size = new System.Drawing.Size(56, 22);
             this.nProcessTextBox.TabIndex = 1;
@@ -106,7 +108,7 @@
             this.batchColumnHeader});
             this.standbyListView.HideSelection = false;
             this.standbyListView.Location = new System.Drawing.Point(16, 127);
-            this.standbyListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.standbyListView.Margin = new System.Windows.Forms.Padding(4);
             this.standbyListView.Name = "standbyListView";
             this.standbyListView.ShowItemToolTips = true;
             this.standbyListView.Size = new System.Drawing.Size(611, 120);
@@ -148,7 +150,7 @@
             this.operationRunColumnHeader});
             this.runningListView.HideSelection = false;
             this.runningListView.Location = new System.Drawing.Point(16, 319);
-            this.runningListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.runningListView.Margin = new System.Windows.Forms.Padding(4);
             this.runningListView.Name = "runningListView";
             this.runningListView.ShowItemToolTips = true;
             this.runningListView.Size = new System.Drawing.Size(611, 133);
@@ -182,11 +184,11 @@
             this.idFinishColumnHeader,
             this.operationFinishColumnHeader});
             this.finishedListView.HideSelection = false;
-            listViewItem1.IndentCount = 1;
+            listViewItem2.IndentCount = 1;
             this.finishedListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem2});
             this.finishedListView.Location = new System.Drawing.Point(842, 13);
-            this.finishedListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.finishedListView.Margin = new System.Windows.Forms.Padding(4);
             this.finishedListView.Name = "finishedListView";
             this.finishedListView.ShowItemToolTips = true;
             this.finishedListView.Size = new System.Drawing.Size(15, 441);
@@ -271,11 +273,37 @@
             this.label4.Text = "Running Process";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // interruptButton
+            // 
+            this.interruptButton.Location = new System.Drawing.Point(524, 255);
+            this.interruptButton.Margin = new System.Windows.Forms.Padding(4);
+            this.interruptButton.Name = "interruptButton";
+            this.interruptButton.Size = new System.Drawing.Size(100, 28);
+            this.interruptButton.TabIndex = 13;
+            this.interruptButton.Text = "Interrupt";
+            this.interruptButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.interruptButton.UseVisualStyleBackColor = true;
+            this.interruptButton.Click += new System.EventHandler(this.interruptButton_Click);
+            // 
+            // errorButton
+            // 
+            this.errorButton.Location = new System.Drawing.Point(416, 255);
+            this.errorButton.Margin = new System.Windows.Forms.Padding(4);
+            this.errorButton.Name = "errorButton";
+            this.errorButton.Size = new System.Drawing.Size(100, 28);
+            this.errorButton.TabIndex = 14;
+            this.errorButton.Text = "Error";
+            this.errorButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.errorButton.UseVisualStyleBackColor = true;
+            this.errorButton.Click += new System.EventHandler(this.errorButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 464);
+            this.Controls.Add(this.errorButton);
+            this.Controls.Add(this.interruptButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -289,7 +317,7 @@
             this.Controls.Add(this.qtyProcessLabel);
             this.Controls.Add(this.nProcessTextBox);
             this.Controls.Add(this.generateBtn);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -324,6 +352,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button interruptButton;
+        private System.Windows.Forms.Button errorButton;
     }
 }
 

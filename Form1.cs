@@ -127,11 +127,12 @@ namespace process_simulation
             }
             //after waiting, move the running process to finished process list
             this.finishedProcess.Add(this.runningProcess);
-            this.finishedListBox.Items.Add(this.runningProcess.id.ToString() + " - " + this.runningProcess.n1.ToString() + this.runningProcess.op + this.runningProcess.n2.ToString() + "=" + this.runningProcess.result.ToString());
-            this.finishedListView.Items.Add(new ListViewItem(new string[] 
+            this.finishedListBox.Items.Add(this.runningProcess.id.ToString() + " - " + this.runningProcess.n1.ToString() 
+                + this.runningProcess.op + this.runningProcess.n2.ToString() + "=" + this.runningProcess.result.ToString());
+            /*this.finishedListView.Items.Add(new ListViewItem(new string[] 
             {
                 this.runningProcess.id.ToString(), this.runningProcess.n1.ToString() + this.runningProcess.op + this.runningProcess.n2.ToString() + "=" + this.runningProcess.result.ToString()
-            }));
+            }));*/
             //clear running and standby lists
             this.runningListView.Items.Clear();
             this.standbyListView.Items.Clear();
@@ -147,6 +148,15 @@ namespace process_simulation
             }
             text_file.Close();
             
+        }
+
+        public void errorProcess()
+        {
+            this.finishedProcess.Add(this.runningProcess);
+            this.finishedListBox.Items.Add(this.runningProcess.id.ToString() + " - " + " Error");
+            //clear running and standby lists
+            this.runningListView.Items.Clear();
+            this.standbyListView.Items.Clear();
         }
         private void ProcessTimer_Tick(object sender, EventArgs e)
         {
@@ -174,6 +184,25 @@ namespace process_simulation
                     currentBatch += 1;
                 }
             }
+        }
+
+        private void interruptButton_Click(object sender, EventArgs e)
+        {
+            //clear running and standby lists
+            this.runningListView.Items.Clear();
+            this.standbyListView.Items.Clear();
+            this.standbyProcess.Add(this.runningProcess);
+            this.moveToRunning();
+        }
+
+        private void errorButton_Click(object sender, EventArgs e)
+        {
+            this.finishedProcess.Add(this.runningProcess);
+            this.finishedListBox.Items.Add(this.runningProcess.id.ToString() + " - " + " Error");
+            //clear running and standby lists
+            this.runningListView.Items.Clear();
+            this.standbyListView.Items.Clear();
+            this.moveToRunning();
         }
     }
 }
